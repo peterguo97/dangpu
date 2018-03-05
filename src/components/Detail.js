@@ -1,13 +1,14 @@
 import React from 'react';
 import { Card, Button } from 'antd';
-import img1 from '../../public/1.jpg';
+import { Link } from 'dva/router';
+import img1 from '../assets/1.jpg';
 
 class Detail extends React.Component {
     render(){
         return(
             <div>
                 <Card title="下载版本"
-                    extra={<a href="/search">返回搜索结果</a>}
+                    extra={<Link to="/search">返回搜索结果</Link>}
                     style={{ 'width': '80%'}}
                     cover={<img src={img1} />}
                 >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input } from 'antd';
+import { Form, Input, Button } from 'antd';
 import PicturesWall from './Upload';
 class ChangeFrom extends React.Component {
     render(){
@@ -12,6 +12,18 @@ class ChangeFrom extends React.Component {
             wrapperCol: {
                 xs: { span: 24 },
                 sm: { span: 16 },
+            },
+        };
+        const tailFormItemLayout = {
+            wrapperCol: {
+                xs: {
+                    span: 24,
+                    offset: 0,
+                },
+                sm: {
+                    span: 16,
+                    offset: 8,
+                },
             },
         };
         return(
@@ -33,6 +45,9 @@ class ChangeFrom extends React.Component {
                     label="上传图片"
                 >
                     <PicturesWall />
+                </FormItem>
+                <FormItem {...tailFormItemLayout}>
+                    <Button type="primary" htmlType="submit">提交修改</Button>
                 </FormItem>
             </Form>
         )

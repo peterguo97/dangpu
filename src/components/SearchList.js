@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'dva/router';
 import { List, Icon, Button, Pagination, Row, Col } from 'antd';
 const data = [
     {
@@ -25,7 +26,7 @@ class SearchList extends React.Component {
                     renderItem={item => (
                         <List.Item>
                             <List.Item.Meta
-                                title={<a href="https://ant.design">{item.title}</a>}
+                                title={<Link to="/detail">{item.title}</Link>}
                                 description="Ant Design, a design language for background applications, is refined by Ant UED Team"
                             />
                             <div>
