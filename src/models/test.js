@@ -8,15 +8,19 @@ export default {
     list: [
       {
         title: 'Ant Design Title 1',
+        url: '/1',
       },
       {
         title: 'Ant Design Title 2',
+        url: '/2',
       },
       {
         title: 'Ant Design Title 3',
+        url: '/3',
       },
       {
         title: 'Ant Design Title 4',
+        url: '/4',
       },
     ]
   },
@@ -31,6 +35,9 @@ export default {
       const { data } = yield call(userService.fetch, {detail});       
       yield put({ type: 'save', payload: data });
     },
+    *delete({ payload: url },{ call, put}){
+      const response = yield call(userService.handleDelete, url);
+    }
   },
 
   reducers: {

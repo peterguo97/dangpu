@@ -1,11 +1,18 @@
 import React from 'react';
 import { connect } from 'dva';
-import { List, Icon, Button, Pagination, Row, Col } from 'antd';
+import { List, Icon, Button, Pagination, Row, Col, Popconfirm } from 'antd';
 
 class Admin extends React.Component {
+    handleDelete = (url) => {
+        const res = this.props.dispatch({
+            type: 'admin/delete',
+            payload: url
+        });
+        console.log(res);
+    }
     render() {
         const data = this.props.list;
-        console.log(this.props);
+        const text = '你确定要删除这个文件吗';
         return (
             <div>
                 <List
@@ -19,7 +26,11 @@ class Admin extends React.Component {
                             />
                             <div>
                                 <a href="#"><Button type="primary">修改</Button></a>
-                                <a href="#"><Button type="danger">删除</Button></a>
+                               <Popconfirm placement="topRight" title={text} okText="确认" cancelText="取消" 
+                                    onConfirm={this.handleDelete.bind(this,item.url)}
+                               >
+                                    <Button type="danger">删除</Button>
+                                </Popconfirm>
                             </div>
                         </List.Item>
                     )}
