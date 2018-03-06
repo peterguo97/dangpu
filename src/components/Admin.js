@@ -1,22 +1,11 @@
 import React from 'react';
+import { connect } from 'dva';
 import { List, Icon, Button, Pagination, Row, Col } from 'antd';
-const data = [
-    {
-        title: 'Ant Design Title 1',
-    },
-    {
-        title: 'Ant Design Title 2',
-    },
-    {
-        title: 'Ant Design Title 3',
-    },
-    {
-        title: 'Ant Design Title 4',
-    },
-];
 
 class Admin extends React.Component {
     render() {
+        const data = this.props.list;
+        console.log(this.props);
         return (
             <div>
                 <List
@@ -36,11 +25,21 @@ class Admin extends React.Component {
                     )}
                 />
                 <Row type="flex" justify="center">
-                    <Col><Pagination defaultCurrent={1} total={50} /></Col>
+                    <Col>
+                        <Pagination defaultCurrent={1} total={50} 
+                            onChange = {( page ) => {
+                                this.props.dispatch({type:'admin/fetch', payload: page })
+                            }}
+                        />
+                    </Col>
                 </Row>
             </div>
         )
     }
 }
 
-export default Admin;
+function mapStateToProps( {admin}, ownProps) {
+    return { list: admin.list }
+}
+
+export default connect(mapStateToProps)(Admin);
