@@ -22,7 +22,14 @@ export default {
         title: 'Ant Design Title 4',
         url: '/4',
       },
-    ]
+    ],
+    data: {
+      title: 'downpu',
+      description: '这是一个办公软件',
+      image:[
+        '../assests/1.jpg'
+      ]
+    },
   },
 
   subscriptions: {
@@ -44,14 +51,15 @@ export default {
     save(state,{payload: {data: list}}) {
       return { ...state, list };
     },
-  }
-  // subscriptions: {
-  //   setup({ dispatch, history }) {
-  //     return history.listen(({ pathname, querry }) => {
-  //       if(pathname === '/admin') {
-  //         dispatch({ type:'fetch', payload: querry});
-  //       }
-  //     });
-  //   }
-  // }
+  },
+  subscriptions: {
+    setup({ dispatch, history }) {
+      return history.listen(({ pathname, search }) => {
+        if(pathname === '/form') {
+          const detail = search.substr(1,search.length);
+          dispatch({ type:'fetch', payload: detail});
+        }
+      });
+    }
+}
 };

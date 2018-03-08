@@ -28,7 +28,7 @@ class MainLayout extends React.Component {
                                 <Menu.Item key="2">站内导航</Menu.Item>
                             </Menu>
                         </Col>
-                        <Col offset={4} span={4}><div style={{color: 'white', float: 'right', fontWeight: 'bold', fontSize: '30'}}>DownPu</div></Col>
+                        <Col offset={4} span={4}><div style={{color: 'white', float: 'right', fontWeight: 'bold', fontSize: '30px'}}>DownPu</div></Col>
                     </Row>                   
                    
                 </Header>

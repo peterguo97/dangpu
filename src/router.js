@@ -15,7 +15,7 @@ function RouterConfig({ history }) {
         <Route path="/search" component={SearchList}/>
         <Route path="/admin" component={Admin} />
         <Route path="/detail" component={Detail} />
-        <Route path="/form" component={ChangeForm} />
+        <Route path="/form(/:number)" component={ChangeForm} />
       </Route>
     </Router>
   );

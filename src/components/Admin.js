@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'dva/router';
 import { connect } from 'dva';
 import { List, Icon, Button, Pagination, Row, Col, Popconfirm } from 'antd';
 
@@ -25,7 +26,7 @@ class Admin extends React.Component {
                                 description="Ant Design, a design language for background applications, is refined by Ant UED Team"
                             />
                             <div>
-                                <a href="#"><Button type="primary">修改</Button></a>
+                                <a href="form/1"><Button type="primary">修改</Button></a>
                                <Popconfirm placement="topRight" title={text} okText="确认" cancelText="取消" 
                                     onConfirm={this.handleDelete.bind(this,item.url)}
                                >
